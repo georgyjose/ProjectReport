@@ -13,6 +13,7 @@
 \usepackage{chngcntr}
 \usepackage{fancyhdr}
 \usepackage{etoolbox}
+\usepackage{multirow}
 \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 
 
@@ -128,19 +129,19 @@ is a bonafide record of the work done by them.
 \vspace{6ex}
 \setlength{\baselineskip}{1.5\baselineskip}
 \paragraph{}
-I am greatly indebted to \textbf{God Almighty} for being the guiding light throughout with his
-abundant grace and blessings that strengthened me to do this endeavour with confidence.
+We are greatly indebted to \textbf{God Almighty} for being the guiding light throughout with his
+abundant grace and blessings that strengthened us to do this endeavour with confidence.
 \paragraph{}
-I express my heartfelt gratitude towards \textbf{Dr. Jacob Thomas V.}, Principal, College
-of Engineering Chengannur for extending all the facilities required for doing my seminar.
+We express our heartfelt gratitude towards \textbf{Dr. Jacob Thomas V.}, Principal, College
+of Engineering Chengannur for extending all the facilities required for doing our project.
 I would also like to thank \textbf{Dr. Smitha Dharan}, Head, Department of Computer
 Engineering, for providing constant support and encouragement.
 \paragraph{}
-Now I extend my sincere thanks to my seminar co-ordinators \textbf{Mrs. Shiny B}, Assistant
-Professor in Computer Engineering and \textbf{Ms. Archana Vijayan}, Assistant Professor in Computer Engineering for guiding me in my work and providing timely
+Now We extend our sincere thanks to our project co-ordinators \textbf{Mrs. Shiny B}, Assistant
+Professor in Computer Engineering and \textbf{Ms. Archana Vijayan}, Assistant Professor in Computer Engineering for guiding us in our work and providing timely
 advices and valuable suggestions.
 \paragraph{}
-Last but not the least, I extend my heartfelt gratitude to my parents and friends for
+Last but not the least, We extend our heartfelt gratitude to our parents and friends for
 their support and assistance.	
 \pagenumbering{gobble}
 
@@ -348,7 +349,24 @@ Although the inception score has shown to well correlate with human perception o
 \paragraph{}
 We compare our results with the state-of-the-art text to image methods on CUB, Oxford-102 and COCO datasets. The inception scores and average human ranks for our proposed StackGAN and compared methods are reported in Table 1. Representative examples are compared in Figure 3 and Figure 4. 
 
-\textbf{ADD TABLE 1 HERE}
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c| }
+\hline
+ Metric & Dataset & GAN-INT-CLS & GAWWN & Our StackGAN \\
+ \hline
+ \multirow{3}{4em}{Inception score} & CUB & 2.88 $\pm 0.04$ & 3.62 $\pm 0.07$ & 3.70 $\pm 0.04$ \\\cline{2-5}
+  & Oxford & 2.66 $\pm 0.03$ & / & 3.20 $\pm 0.01$ \\\cline{2-5}
+  & COCO & 7.88 $\pm 0.07$ & / & 8.45 $\pm 0.03$ \\    
+ \hline
+ \multirow{3}{4em}{Human rank} & CUB & 2.81 $\pm 0.03$ & 1.99 $\pm 0.04$ & 1.37 $\pm 0.03$ \\\cline{2-5}
+  & Oxford & 1.87 $\pm 0.03$ & / & 1.13 $\pm 0.03$ \\\cline{2-5}
+  & COCO & 1.89 $\pm 0.04$ & / & 1.11 $\pm 0.03$ \\   
+ \hline
+\end{tabular}
+\captionof{table}{Inception scores and average human ranks of our StackGAN,
+GAWWN, and GAN-INT-CLS on CUB, Oxford102,
+and MS-COCO datasets}
+\end{center}
 
 \begin{figure}[H]
 \centering
