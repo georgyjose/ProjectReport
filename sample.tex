@@ -172,7 +172,7 @@ Synthesizing high-quality images from text descriptions is a challenging problem
 \lfoot{\textit{College of Engineering, Chengannur}}
 
 \rfoot{\thepage}
-\section{Introduction}
+\section{INTRODUCTION}
 \pagenumbering{arabic}
 \paragraph{}
 Generating photo-realistic images from text is an important problem and has tremendous applications, including photo-editing, computer-aided design, etc. Recently, Generative Adversarial Networks (GAN) have shown promising results in synthesizing real-world images. Conditioned on given text descriptions, conditional GANs are able to generate images that are highly related to the text meanings. 
@@ -194,7 +194,7 @@ problem of generating high-resolution images into more manageable subproblems an
 of the generated samples. (3) Extensive qualitative and quantitative experiments demonstrate the effectiveness of the overall model design as well as the effects of individual components, which provide useful information for designing future conditional GAN models. Our code is available at https://github.com/hanzhanggit/StackGAN. 
 
 \newpage
-\section{Related Work}
+\section{RELATED WORK}
 \paragraph{}
 Generative image modeling is a fundamental problem in computer vision. There has been remarkable progress in this direction with the emergence of deep learning techniques. Variational Autoencoders (VAE) formulated the problem with probabilistic graphical models whose goal was to maximize the lower bound of data likelihood. Autoregressive models (e.g., PixelRNN) that utilized neural networks to model the conditional distribution of the pixel space have also generated appealing synthetic images. Recently, Generative Adversarial Networks (GAN) have shown promising performance for generating sharper images. But training instability makes it hard for GAN models to generate high-resolution (e.g., 256x256) images. Several techniques have been proposed to stabilize the training process and generate compelling results. An energy-based GAN has also been proposed for more stable training behaviour. 
 
@@ -203,7 +203,7 @@ Built upon these generative models, conditional image generation has also been s
 Besides using a single GAN for generating images, there is also work that utilized a series of GANs for image generation. Wang et al. factorized the indoor scene generation process into structure generation and style generation with the proposed S\textsuperscript{2}-GAN. In contrast, the second stage of our StackGAN aims to complete object details and correct defects of Stage-I results based on text descriptions. Denton et al. built a series of GANs within a Laplacian pyramid framework. At each level of the pyramid, a residual image was generated conditioned on the image of the previous stage and then added back to the input image to produce the input for the next stage. Concurrent to our work, Huang et al. also showed that they can generate better images by stacking several GANs to reconstruct the multi-level representations of a pre-trained discriminative model. However, they only succeeded in generating 32x32 images, while our method utilizes a simpler architecture to generate 256x256 images with photo-realistic details and sixty-four times more pixels. 
 
 \newpage
-\section{Stacked Generative Adversarial Networks}
+\section{STACKED GENERATIVE ADVERSARIAL NETWORKS}
 \paragraph{}
 To generate high-resolution images with photo-realistic details, we propose a simple yet effective Stacked Generative Adversarial Networks. It decomposes the text-to-image generative process into two stages (see Figure 2). 
 \begin{itemize}
@@ -326,7 +326,7 @@ The up-sampling blocks consist of the nearest-neighbour upsampling followed by a
 By default, N\textsubscript{g} =128,N\textsubscript{z} =100,Mg =16,M\textsubscript{d} =4, N\textsubscript{d} = 128, W\textsubscript{0} = H\textsubscript{0} = 64 and W = H = 256. For training, we first iteratively train D\textsubscript{0} and G\textsubscript{0} of Stage-I GAN for 600 epochs by fixing Stage-II GAN. Then we iteratively train D and G of Stage-II GAN for another 600 epochs by fixing Stage-I GAN. All networks are trained using ADAM solver with batch size 64 and an initial learning rate of 0.0002. The learning rate is decayed to 1/2 of its previous value every 100 epochs. 
 
 \newpage
-\section{Experiments}
+\section{EXPERIMENTS}
 \paragraph{}
 To validate our method, we conduct extensive quantitative and qualitative evaluations. Two state-of-the-art methods on text-to-image synthesis, GAN-INT-CLS and GAWWN, are compared. Results by the two compared methods are generated using the code released by their authors. In addition, we design several baseline models to investigate the overall design and important components of our proposed StackGAN. For the first baseline, we directly train Stage-I GAN for generating 64x64 and 256x256 images to investigate whether the proposed stacked structure and Conditioning Augmentation are beneficial. Then we modify our StackGAN to generate 128x128 and 256x256 images to investigate whether larger images by our method result in higher image quality. We also investigate whether inputting text at both stages of StackGAN is useful. 
 
@@ -421,7 +421,7 @@ Text twice”), the inception score decreases from 3.70 to 3.45. It indicates th
 \textbf{Sentence embedding interpolation. }To further demonstrate that our StackGAN learns a smooth latent data manifold, we use it to generate images from linearly interpolated sentence embeddings, as shown in Figure 8. We fix the noise vector z, so the generated image is inferred from the given text description only. Images in the first row are generated by simple sentences made up by us. Those sentences contain only simple color descriptions. The results show that the generated images from interpolated embeddings can accurately reflect color changes and generate plausible bird shapes. The second row illustrates samples generated from more complex sentences, which contain more details on bird appearances. The generated images change their primary color from red to blue, and change the wing color from black to brown. 
 
 \newpage
-\section{Conclusions }
+\section{CONCLUSION}
 \paragraph{}
 In this paper, we propose Stacked Generative Adversarial Networks (StackGAN) with Conditioning Augmentation for synthesizing photo-realistic images. The proposed method decomposes the text-to-image synthesis to a novel sketch-refinement process. Stage-I GAN sketches the object following basic color and shape constraints from given text descriptions. Stage-II GAN corrects the defects in Stage-I results and adds more details, yielding higher resolution images with better image quality. Extensive quantitative and qualitative results demonstrate the effectiveness of our proposed method. Compared to existing text-to-image generative models, our method generates higher resolution images (e.g., 256x256) with more photo-realistic details and diversity. 
 
@@ -431,27 +431,51 @@ In this paper, we propose Stacked Generative Adversarial Networks (StackGAN) wit
 \newpage
 \section{REFERENCES}
 \begin{thebibliography}{9}
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
-\bibitem{d} 
+\bibitem{d} M. Arjovsky and L. Bottou. Towards principled methods for
+training generative adversarial networks. In ICLR, 2017
+\bibitem{d} A. Brock, T. Lim, J. M. Ritchie, and N. Weston. Neural photo editing with introspective adversarial networks. In ICLR,
+2017
+\bibitem{d} T. Che, Y. Li, A. P. Jacob, Y. Bengio, and W. Li. Mode
+regularized generative adversarial networks. In ICLR, 2017 
+\bibitem{d} X. Chen, Y. Duan, R. Houthooft, J. Schulman, I. Sutskever,
+and P. Abbeel. Infogan: Interpretable representation learning
+by information maximizing generative adversarial nets. In
+NIPS, 2016
+\bibitem{d} E. L. Denton, S. Chintala, A. Szlam, and R. Fergus. Deep
+generative image models using a laplacian pyramid of adversarial
+networks. In NIPS, 2015
+\bibitem{d} C. Doersch. Tutorial on variational autoencoders.
+arXiv:1606.05908, 2016
+\bibitem{d} J. Gauthier. Conditional generative adversarial networks for convolutional face generation. Technical report, 2015
+\bibitem{d} I. J. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu,
+D. Warde-Farley, S. Ozair, A. C. Courville, and Y. Bengio.
+Generative adversarial nets. In NIPS, 2014
+\bibitem{d} K. He, X. Zhang, S. Ren, and J. Sun. Deep residual learning
+for image recognition. In CVPR, 2016
+\bibitem{d} X. Huang, Y. Li, O. Poursaeed, J. Hopcroft, and S. Belongie.
+Stacked generative adversarial networks. In CVPR, 2017
+\bibitem{d} S. Ioffe and C. Szegedy. Batch normalization: Accelerating
+deep network training by reducing internal covariate shift. In
+ICML, 2015
+\bibitem{d} P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros. Image-to-image translation with conditional adversarial networks. In CVPR,
+2017
+\bibitem{d} D. P. Kingma and M. Welling. Auto-encoding variational
+bayes. In ICLR, 2014
+\bibitem{d} A. B. L. Larsen, S. K. Sønderby, H. Larochelle, and
+O. Winther. Autoencoding beyond pixels using a learned
+similarity metric. In ICML, 2016
+\bibitem{d} C. Ledig, L. Theis, F. Huszar, J. Caballero, A. Aitken, A. Tejani, J. Totz, Z. Wang, and W. Shi. Photo-realistic single image
+super-resolution using a generative adversarial network.
+In CVPR, 2017
+\bibitem{d} T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Dollr, and C. L. Zitnick. Microsoft coco: Common
+objects in context. In ECCV, 2014
+\bibitem{d} E. Mansimov, E. Parisotto, L. J. Ba, and R. Salakhutdinov.
+Generating images from captions with attention. In ICLR,
+2016
 \end{thebibliography}
 
 \newpage
-\section{Supplementary Materials}
+\section{SUPPLEMENTARY MATERIALS}
 \subsection{More Results of Birds and Flowers}
 \textbf{Additional Results on CUB Dataset}
 
